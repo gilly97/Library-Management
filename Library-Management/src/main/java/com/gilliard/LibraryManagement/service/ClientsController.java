@@ -1,4 +1,4 @@
-package com.gilliard.LibraryManagement;
+package com.gilliard.LibraryManagement.service;
 
 import java.net.URI;
 import java.net.URISyntaxException;
