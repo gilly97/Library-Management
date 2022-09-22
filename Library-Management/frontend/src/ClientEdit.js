@@ -3,6 +3,10 @@ import { Link, withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 import AppNavbar from './AppNavbar';
 
+function refreshPage() {
+    window.location.reload(false);
+  }
+
 class ClientEdit extends Component {
 
     emptyItem = {
@@ -66,8 +70,8 @@ class ClientEdit extends Component {
                                onChange={this.handleChange} autoComplete="email"/>
                     </FormGroup>
                     <FormGroup>
-                        <Button color="primary" type="submit">Save</Button>{' '}
-                        <Button color="secondary" tag={Link} to="/clients">Cancel</Button>
+                        <Button color="primary" type="submit" onClick={refreshPage}>Save</Button>{' '}
+                        <Button color="secondary" onClick={refreshPage} tag={Link} to="/clients">Cancel</Button>
                     </FormGroup>
                 </Form>
             </Container>
