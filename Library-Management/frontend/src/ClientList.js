@@ -3,6 +3,10 @@ import { Button, ButtonGroup, Container, Table } from 'reactstrap';
 import AppNavbar from './AppNavbar';
 import { Link } from 'react-router-dom';
 
+function refreshPage() {
+    window.location.reload(false);
+}
+
 class ClientList extends Component {
 
     constructor(props) {
@@ -54,7 +58,7 @@ class ClientList extends Component {
                 <AppNavbar/>
                 <Container fluid>
                     <div className="float-right">
-                        <Button color="success" tag={Link} to="/clients/new">Add Client</Button>
+                        <Button color="success" onClick={refreshPage} tag={Link} to="/clients/new">Add Client</Button>
                     </div>
                     <h3>Clients</h3>
                     <Table className="mt-4">
