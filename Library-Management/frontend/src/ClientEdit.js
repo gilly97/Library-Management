@@ -5,7 +5,7 @@ import AppNavbar from './AppNavbar';
 
 function refreshPage() {
     window.location.reload(false);
-}
+  }
 
 class ClientEdit extends Component {
 
