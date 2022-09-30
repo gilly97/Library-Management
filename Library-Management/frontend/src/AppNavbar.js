@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {Navbar, NavbarBrand, Button} from 'reactstrap';
-import {Link} from 'react-router-dom';
-import { useHistory } from "react-router-dom";
+import {Navbar, NavbarBrand} from 'reactstrap';
+//import {Link} from 'react-router-dom';
+//import { useHistory } from "react-router-dom";
 
 
 function refreshPage() {
-    window.location.reload(false);
+    window.location.href = "http://localhost:3000";
   }
 // function UrlChange() {
   
@@ -32,9 +32,9 @@ export default class AppNavbar extends Component {
 
     render() {
         return <Navbar color="dark" dark expand="md" role = "navigation">
-            <NavbarBrand onClick={refreshPage} tag={Link} to="/">Home</NavbarBrand>
-            <NavbarBrand onClick={refreshPage} tag={Link} to="/">Why Not Work</NavbarBrand>
+            <NavbarBrand onClick={refreshPage}>Home</NavbarBrand>
 
         </Navbar>;
     }
 }
+//<NavbarBrand onClick={refreshPage} tag={Link} to="/">Why Not Work</NavbarBrand>

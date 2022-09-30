@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 import AppNavbar from './AppNavbar';
 
 function refreshPage() {
-    window.location.reload(false);
-}
+    window.location.href = "http://localhost:3000/clients";
+    
+  }
 
 class ClientEdit extends Component {
 
@@ -21,11 +22,15 @@ class ClientEdit extends Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        
     }
     async componentDidMount() {
         if (this.props.match.params.id !== 'new') {
-            const client = await (await fetch(`/clients/${this.props.match.params.id}`)).json();
+            console.log(fetch(`http://localhost:8080/clients/${this.props.match.params.id}`));
+            const client = await (await fetch(`http://localhost:8080/clients/${this.props.match.params.id}`)).json();
+            //${this.props.match.params.name}
             this.setState({item: client});
+            console.log(this.state.id);
         }
     }
     handleChange(event) {
@@ -40,7 +45,7 @@ class ClientEdit extends Component {
         event.preventDefault();
         const {item} = this.state;
     
-        await fetch('/clients' + (item.id ? '/' + item.id : ''), {
+        await fetch('http://localhost:8080/clients' + (item.id ? '/' + item.id : ''), {
             method: (item.id) ? 'PUT' : 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -48,7 +53,7 @@ class ClientEdit extends Component {
             },
             body: JSON.stringify(item),
         });
-        this.props.history.push('/clients');
+
     }
     render() {
         const {item} = this.state;
@@ -70,8 +75,10 @@ class ClientEdit extends Component {
                                onChange={this.handleChange} autoComplete="email"/>
                     </FormGroup>
                     <FormGroup>
-                        <Button color="primary" type="submit" onClick={refreshPage}>Save</Button>{' '}
-                        <Button color="secondary" onClick={refreshPage} tag={Link} to="/clients">Cancel</Button>
+                        
+                        <Button color="primary" type="submit" onClick={() => refreshPage()}>Save</Button>{' '}
+                        <Button color="secondary" onClick={() => refreshPage()}>Cancel</Button>
+                      
                     </FormGroup>
                 </Form>
             </Container>
