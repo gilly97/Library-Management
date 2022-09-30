@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Button, ButtonGroup, Container, Table } from 'reactstrap';
 import AppNavbar from './AppNavbar';
-import { Link } from 'react-router-dom';
 
-function refreshPage() {
-    window.location.reload(false);
+function refreshPage(id) {
+    window.location.href="clients/"+id;
   }
 
 class ClientList extends Component {
@@ -57,12 +56,15 @@ class ClientList extends Component {
         }
     //FROM HERE DOWN IS FUNCTIONING PROPERLY BESIDES THE SWITCHING OF PAGES
         const clientList = clients.map(client => {
+            console.log(client.id);
             return <tr key={client.id}>
                 <td style={{whiteSpace: 'nowrap'}}>{client.name}</td>
                 <td>{client.email}</td>
                 <td>
                     <ButtonGroup>
-                        <Button size="sm" color="primary" tag={Link} to={"/clients/" + client.id }>Edit</Button>
+                    
+                        <Button size="sm" color="primary" onClick={() => refreshPage(client.id)}>Edit</Button>
+                    
                         <Button size="sm" color="danger" onClick={() => this.remove(client.id)}>Delete</Button>
                     </ButtonGroup>
                 </td>
@@ -74,7 +76,9 @@ class ClientList extends Component {
                 <AppNavbar/>
                 <Container fluid>
                     <div className="float-right">
-                        <Button color="success" onClick={refreshPage}>Add Client</Button>
+                        <a href = "http://localhost:3000/clients/new">
+                            <Button color="success" onClick={refreshPage}>Add Client</Button>
+                        </a>
                     </div>
                     <h3>Clients</h3>
                     <Table className="mt-4">

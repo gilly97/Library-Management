@@ -5,7 +5,7 @@ import {Navbar, NavbarBrand} from 'reactstrap';
 
 
 function refreshPage() {
-    window.location.reload(false);
+    window.location.href = "http://localhost:3000";
   }
 // function UrlChange() {
   
