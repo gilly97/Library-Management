@@ -77,7 +77,7 @@ class ClientList extends Component {
                 <Container fluid>
                     <div className="float-right">
                         <a href = "http://localhost:3000/clients/new">
-                            <Button color="success" onClick={refreshPage}>Add Client</Button>
+                            <Button color="success">Add Client</Button>
                         </a>
                     </div>
                     <h3>Clients</h3>
