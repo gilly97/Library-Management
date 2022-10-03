@@ -57,7 +57,7 @@ class ClientEdit extends Component {
     }
     render() {
         const {item} = this.state;
-        const title = <h2>{item.id ? 'Edit Client' : 'Add Client'}</h2>;
+        const title = <h2>{item.id ? 'Edit Book' : 'Add Book'}</h2>;
     
         return <div>
             <AppNavbar/>
@@ -70,7 +70,7 @@ class ClientEdit extends Component {
                                onChange={this.handleChange} autoComplete="name"/>
                     </FormGroup>
                     <FormGroup>
-                        <Label for="email">Email</Label>
+                        <Label for="email">Author</Label>
                         <Input type="text" name="email" id="email" value={item.email || ''}
                                onChange={this.handleChange} autoComplete="email"/>
                     </FormGroup>

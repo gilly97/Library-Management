@@ -77,15 +77,15 @@ class ClientList extends Component {
                 <Container fluid>
                     <div className="float-right">
                         <a href = "http://localhost:3000/clients/new">
-                            <Button color="success">Add Client</Button>
+                            <Button color="success">Add Book</Button>
                         </a>
                     </div>
-                    <h3>Clients</h3>
+                    <h3>Books</h3>
                     <Table className="mt-4">
                         <thead>
                         <tr>
                             <th width="30%">Name</th>
-                            <th width="30%">Email</th>
+                            <th width="30%">Author</th>
                             <th width="40%">Actions</th>
                         </tr>
                         </thead>
