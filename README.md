@@ -1,5 +1,5 @@
 # Library-Management
-Devon Gilliard
+Devon Gilliard -
 Capgemini
 
 This Library Management System is designed for managing and maintaining libraries in any educational institution
