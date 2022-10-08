@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 import Home from './Home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import ClientList from './ClientList';
-import ClientEdit from "./ClientEdit";
+import BookList from './BookList';
+import BookEdit from "./BookEdit";
+import CheckedOut from './CheckedOut';
+
 
 class App extends Component {
   render() {
@@ -11,8 +13,10 @@ class App extends Component {
         <Router>
           <Switch>
             <Route path='/' exact={true} component={Home}/>
-            <Route path='/clients' exact={true} component={ClientList}/>
-            <Route path='/clients/:id' component={ClientEdit}/>
+            <Route path='/books' exact={true} component={BookList}/>
+            <Route path='/books/checked_out' exact={true} component={CheckedOut}/>
+            <Route path='/books/:id' component={BookEdit}/>
+            
           </Switch>
         </Router>
     )

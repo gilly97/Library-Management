@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Navbar, NavbarBrand} from 'reactstrap';
+import {Navbar, Button} from 'reactstrap';
 //import {Link} from 'react-router-dom';
 //import { useHistory } from "react-router-dom";
 
@@ -32,7 +32,7 @@ export default class AppNavbar extends Component {
 
     render() {
         return <Navbar color="dark" dark expand="md" role = "navigation">
-            <NavbarBrand onClick={refreshPage}>Home</NavbarBrand>
+            <Button color="outline-warning" onClick={refreshPage}>Home</Button>
 
         </Navbar>;
     }

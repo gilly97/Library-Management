@@ -1,3 +1,3 @@
-INSERT INTO client (id, name, email) VALUES (1, 'Dee Gill', 'dee.gill@clemson.edu');
-INSERT INTO client (id, name, email) VALUES (2, 'Q Gill', 'qq.gill@clemson.edu');
-INSERT INTO client (id, name, email) VALUES (3, 'Reggie Gill', 'r.gill@att.net');
+INSERT INTO book (id, name, author, checked_out, years, publisher, genre) VALUES (1, 'The Great Gatsby', 'F. Scott Fitzgerald', false, 1925, 'publisher', 'genre');
+INSERT INTO book (id, name, author, checked_out, years, publisher, genre) VALUES (2, 'To Kill a MockingBird', 'Harper Lee', false, 1960, 'publisher', 'genre');
+INSERT INTO book (id, name, author, checked_out, years, publisher, genre) VALUES (3, '1984', 'George Orwell', true, 1949, 'publisher', 'genre');
