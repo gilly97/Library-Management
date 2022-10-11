@@ -3,13 +3,14 @@ import { withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 import AppNavbar from './AppNavbar';
 
-function refreshPage() {
-    window.location.href = "http://localhost:3000/books";
-    
-  }
+ 
 
 class BookEdit extends Component {
 
+refreshPage() {
+    window.location.href = "http://localhost:3000/books";
+    
+  }
     emptyItem = {
         name: '',
         author: '',
@@ -80,9 +81,23 @@ class BookEdit extends Component {
                     </FormGroup>
                     <FormGroup>
                         <Label for="years">Year</Label>
-                        <Input type="text" name="years" id="years" value={item.years || ''}
-                               onChange={this.handleChange} autoComplete="years"/>
                     </FormGroup>
+                    <FormGroup>
+                    {/* <Input type="text" name="years" id="years" value={item.years || ''}
+                               onChange={this.handleChange} autoComplete="years"/> */}
+                        <select  name="years" id="years" value={item.genre || ''}
+                               onChange={this.handleChange} autoComplete="genre">
+                            <option value=""></option>
+                            <option value="Fiction">Fiction</option>
+                            <option value="Fiction">Fiction</option>
+                            <option value="Fiction">Fiction</option>
+                            <option value="Fiction">Fiction</option>
+                            <option value="Fiction">Fiction</option>
+                            <option value="Fiction">Fiction</option>
+                            <option value="Fiction">Fiction</option>
+                        </select>
+                    </FormGroup>
+                    
                     <FormGroup>
                         <Label for="publisher">Publisher</Label>
                         <Input type="text" name="publisher" id="publisher" value={item.publisher || ''}
@@ -111,8 +126,8 @@ class BookEdit extends Component {
                     <br/>
                     <FormGroup>
                         
-                        <Button color="primary" type="submit" onClick={() => refreshPage()}>Save</Button>{' '}
-                        <Button color="secondary" onClick={() => refreshPage()}>Cancel</Button>
+                        <Button color="primary" type="submit" onClick={() => this.refreshPage()}>Save</Button>{' '}
+                        <Button color="secondary" onClick={() => this.refreshPage()}>Cancel</Button>
                       
                     </FormGroup>
                 </Form>

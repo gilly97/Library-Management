@@ -10,8 +10,13 @@ class Home extends Component {
                 <AppNavbar/>
                 <Container fluid>
                     <br/>
+                    <a href = "http://localhost:3000/persons">
+                        <Button color="success">Members</Button>
+                    </a>
+                    <br/>
+                    <br/>
                     <a href = "http://localhost:3000/books">
-                        <Button color="secondary">Books</Button>
+                        <Button color="primary">Books</Button>
                     </a>
                     <br/>
                     {/* <a href = "http://localhost:3000/checked_out">

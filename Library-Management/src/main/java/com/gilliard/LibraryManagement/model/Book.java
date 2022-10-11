@@ -3,6 +3,8 @@ package com.gilliard.LibraryManagement.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +21,10 @@ public class Book {
     private String years;
     private String publisher;
     private String genre;
+    
+	@ManyToOne
+	@JoinColumn(name = "check_out_id")
+	private CheckOut checkOut;
     
   // getters, setters, constructors  
 //    public Client() {
@@ -72,6 +78,12 @@ public class Book {
 	}
 	public void setGenre(String genre) {
 		this.genre = genre;
+	}
+	public CheckOut getCheckOut() {
+		return checkOut;
+	}
+	public void setCheckOut(CheckOut checkOut) {
+		this.checkOut = checkOut;
 	}
 
 

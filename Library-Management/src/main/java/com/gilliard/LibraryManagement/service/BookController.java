@@ -15,18 +15,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gilliard.LibraryManagement.model.Book;
+import com.gilliard.LibraryManagement.model.CheckOut;
 import com.gilliard.LibraryManagement.repo.BookRepository;
+import com.gilliard.LibraryManagement.repo.CheckOutRepository;
 
 @RestController
 @RequestMapping("/books")
 public class BookController {
 
-    private final BookRepository bookRepository;
+    private BookRepository bookRepository;
 
     public BookController(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
-
+    
 //	-------------------------BOOK SERVICE----------------------------------------------
     
 //    //View All Books
@@ -78,6 +80,7 @@ public class BookController {
         bookRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
+    
 //	-----------------------------------------------------------------------------------
 
 }

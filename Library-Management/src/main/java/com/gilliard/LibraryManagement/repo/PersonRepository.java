@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
-import com.gilliard.LibraryManagement.model.CheckedOut;
-import com.gilliard.LibraryManagement.model.Book;
+import com.gilliard.LibraryManagement.model.Person;
 
-public interface CheckedOutRepository extends JpaRepository<CheckedOut, Long>{
+public interface PersonRepository extends JpaRepository<Person, Long>{
 	
 
 }
