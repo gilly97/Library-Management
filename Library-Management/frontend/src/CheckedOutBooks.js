@@ -8,7 +8,7 @@ import AppNavbar from './AppNavbar';
    // window.location.href="";
     console.log(book);
   }
-class CheckedOut extends Component {
+class CheckedOutBooks extends Component {
 
     constructor(props) {
         super(props);
@@ -50,8 +50,11 @@ class CheckedOut extends Component {
         //console.log(book.id);
         //console.log(book.checkedOut);
         return <tr key={book.id}>
-            <td style={{whiteSpace: 'nowrap'}}>{book.name}</td>
-            <td>{book.email}</td>
+                <td style={{whiteSpace: 'nowrap'}}>{book.name}</td>
+                <td>{book.author}</td>
+                <td>{book.years}</td>
+                <td>{book.publisher}</td>
+                <td>{book.genre}</td>
             
             <td>
             
@@ -80,11 +83,14 @@ class CheckedOut extends Component {
                 <h3><br/>Checked Out Books</h3>
                 <Table className="mt-4">
                     <thead>
-                    <tr>
-                        <th width="30%">Name</th>
-                        <th width="30%">Author</th>
-                        <th width="40%">Actions</th>
-                    </tr>
+                        <tr>
+                            <th width="15%">Name</th>
+                            <th width="15%">Author</th>
+                            <th width="15%">Year</th>
+                            <th width="15%">Publisher</th>
+                            <th width="15%">Genre</th>
+                            <th width="25%">Actions</th>
+                        </tr>
                     </thead>
                     <tbody>
                     {bookList}
@@ -94,4 +100,4 @@ class CheckedOut extends Component {
         </div>
     );
     }
-}export default CheckedOut;
+}export default CheckedOutBooks;
