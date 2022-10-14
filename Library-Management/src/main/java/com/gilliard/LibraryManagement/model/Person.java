@@ -20,8 +20,8 @@ public class Person {
 	
 	private String name;
 	private String number;
-	@OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
-	private List<CheckOut> checkOuts;
+	@OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
+	private CheckOut checkOut;
 	
 	
 	public Long getId() {
@@ -42,11 +42,11 @@ public class Person {
 	public void setNumber(String number) {
 		this.number = number;
 	}
-	public List<CheckOut> getCheckOuts() {
-		return checkOuts;
+	public CheckOut getCheckOut() {
+		return checkOut;
 	}
-	public void setCheckOuts(List<CheckOut> checkOuts) {
-		this.checkOuts = checkOuts;
+	public void setCheckOut(CheckOut checkOut) {
+		this.checkOut = checkOut;
 	}
 	
 }

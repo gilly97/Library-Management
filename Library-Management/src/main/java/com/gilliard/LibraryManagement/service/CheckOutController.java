@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.gilliard.LibraryManagement.model.Book;
 import com.gilliard.LibraryManagement.model.CheckOut;
+import com.gilliard.LibraryManagement.model.Person;
 import com.gilliard.LibraryManagement.repo.CheckOutRepository;
 
 @RestController
@@ -23,22 +24,34 @@ public class CheckOutController {
 	
     private final CheckOutRepository checkOutRepository;
 
+
     public CheckOutController(CheckOutRepository checkOutRepository) {
         this.checkOutRepository = checkOutRepository;
     }
-    //Add a CheckOut of Books
-    @PostMapping
-    public ResponseEntity checkOutBooks(@RequestBody CheckOut checkOut) throws URISyntaxException {
-    	CheckOut savedCheckOut = checkOutRepository.save(checkOut);
-        return ResponseEntity.created(new URI("/check_out/"+ savedCheckOut.getId())).body(savedCheckOut);
-    }
     
-    //Edit a CheckOut
-    @PutMapping("/{id}")
-    public ResponseEntity updateCheckOut(@PathVariable Long id, @RequestBody CheckOut checkOut) {
-        CheckOut currentCheckOut = checkOutRepository.findById(id).orElseThrow(RuntimeException::new);
-        currentCheckOut = checkOutRepository.save(checkOut);
+    //Add a CheckOut of Books
+//    @PostMapping("/{id}")
+//    public ResponseEntity checkOutBooks(@RequestBody CheckOut checkOut) throws URISyntaxException {
+//    	CheckOut savedCheckOut = checkOutRepository.save(checkOut);
+//        //return ResponseEntity.created(new URI("/books/" + savedCheckOut.getId())).body(savedCheckOut);
+//        return ResponseEntity.ok(savedCheckOut);
+//
 
-        return ResponseEntity.ok(currentCheckOut);
-    }
+   //     return ResponseEntity.created(new URI("/check_out/"+ savedCheckOut.getId())).body(savedCheckOut);
+ //   }
+    
+    //View Contents of a CheckOut
+//    @GetMapping("/{id}")
+//    public CheckOut getCheckOut(@PathVariable Long id) {
+//        return checkOutRepository.findById(id).orElseThrow(RuntimeException::new);
+//    }
+//    
+//    //Edit a CheckOut
+//    @PutMapping("/{id}")
+//    public ResponseEntity updateCheckOut(@PathVariable Long id, @RequestBody CheckOut checkOut) {
+//        CheckOut currentCheckOut = checkOutRepository.findById(id).orElseThrow(RuntimeException::new);
+//        currentCheckOut = checkOutRepository.save(checkOut);
+//
+//        return ResponseEntity.ok(currentCheckOut);
+//    }
 }

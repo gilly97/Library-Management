@@ -46,9 +46,15 @@ public class PersonController {
 //    }
 //    
 
-    //View a Person
+    //View Contents of a Person
     @GetMapping("/{id}")
     public Person getPerson(@PathVariable Long id) {
+        return personRepository.findById(id).orElseThrow(RuntimeException::new);
+    }
+    
+    //Get Person for a CheckOut
+    @GetMapping("/check_out{id}")
+    public Person getPersonForCheckOut(@PathVariable Long id) {
         return personRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 

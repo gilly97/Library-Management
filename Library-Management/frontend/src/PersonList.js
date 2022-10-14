@@ -1,7 +1,6 @@
 import React, { Component, useState } from 'react';
-import { Button, ButtonGroup, Form, FormGroup, Input, Container, Table } from 'reactstrap';
+import { Button, ButtonGroup, Form, FormGroup, Input, Container, Table, CardBody } from 'reactstrap';
 import AppNavbar from './AppNavbar';
-
 
 //   function checkOut(book) {
 //       console.log(book);
@@ -15,19 +14,29 @@ class PersonList extends Component {
 refreshPage(id) {
     window.location.href="persons/"+id;
   }
-
-newCheckOut(id) {
-    window.location.href="check_out/new";
+checkOut(id) {
+    window.location.href="check_out"+id;
   }
+
     // emptyPerson = {
     //     persons: []
     // };
  
     constructor(props) {
         super(props);
-        this.state = {persons: []};
+        this.state = {persons: [], 
+                        
+                      checkOut: {
+                            person: {
+                                id: Number,
+                                name: '',
+                                number: ''
+                            },
+                            books: []
+            } 
+        };
         this.remove = this.remove.bind(this);
-        this.handleChange = this.handleChange.bind(this);
+     //   this.handleChange = this.handleChange.bind(this);
     //    this.handleSubmit = this.handleSubmit.bind(this);
 
     }
@@ -57,6 +66,13 @@ newCheckOut(id) {
 //     });
 // });
     }
+
+    // componentDidUpdate(prevProps, prevState, snapshot){
+    //     let persons = [...this.state.persons];
+    //     if(this.state.checkOut){
+    //         this.setState({persons: persons});
+    //     }
+    // }
 //--------------------------------------------------------------------------------------------------------
 // async handleSubmit(event) {
 //     event.preventDefault();
@@ -75,14 +91,14 @@ newCheckOut(id) {
 //     });
 
 // }
-handleChange(event){
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-    let item = {...this.state.item};
-    item[name] = value;
-    //this.setState({item});
-}
+// handleChange(event){
+//     const target = event.target;
+//     const value = target.value;
+//     const name = target.name;
+//     let item = {...this.state.item};
+//     item[name] = value;
+//     //this.setState({item});
+// }
 //--------------------------------------------------------------------------------------------------------
     async remove(id) {
         await fetch(`http://localhost:8080/persons/${id}`, {
@@ -96,14 +112,44 @@ handleChange(event){
             this.setState({persons: updatedPersons});
         });
     }
+
+    async newCheckOut(person) {
+        console.log(person);
+        let NewPersons = {...this.state.persons};
+        console.log(NewPersons);
+        this.state.checkOut.person = person;
+        let newCheckOut = {...this.state};
+
+        this.setState({checkOut: newCheckOut});
+        console.log(newCheckOut);
+
+
+        await fetch(`http://localhost:8080/check_out/${person.id}`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newCheckOut),
+       });
+ 
+      //window.location.href=`check_out/${person.id}`;
+    }
+
+
     
     render() {
         const {persons, isLoading} = this.state;
-
-        
+        console.log(persons);
     
         if (isLoading) {
             return <p>Loading...</p>;
+        }
+
+        const PersonList = (props) => {
+            return(
+              <h2> {props.data} </h2>
+            );
         }
         //FROM HERE DOWN IS FUNCTIONING PROPERLY BESIDES THE SWITCHING OF PAGES
         let checked = false;
@@ -123,8 +169,8 @@ handleChange(event){
 
                 <td>                                   
                     <ButtonGroup>
-                        <Button size="sm" color="success" onClick={() => this.newCheckOut(person.id)}>Check Out</Button>
-                        <Button size="sm" color="warning" onClick={() => this.refreshPage(person.id)}>Edit</Button>
+                        <Button size="sm" color="success" onClick={() => this.checkOut(person.id)}>Check Out</Button>
+                        <Button size="sm" color="info" onClick={() => this.refreshPage(person.id)}>Edit</Button>
                         <Button size="sm" color="danger" onClick={() => this.remove(person.id)}>Delete</Button>
                     </ButtonGroup>
                    
@@ -138,7 +184,6 @@ handleChange(event){
             <div>
                 <AppNavbar/>
                 <Container fluid>
-
                     <br/>
 
                     <div className="float:right">
@@ -164,6 +209,8 @@ handleChange(event){
                         {personList}
                         </tbody>
                     </Table>
+
+                    
                 </Container>
             </div>
         );

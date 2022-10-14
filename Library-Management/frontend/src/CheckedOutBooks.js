@@ -59,7 +59,7 @@ class CheckedOutBooks extends Component {
             <td>
             
                 <ButtonGroup>
-                    <Button size="sm" color="info" onClick={() => checkOut(book)}>View Details</Button>
+                   {/* <Button size="sm" color="info" onClick={() => checkOut(book)}>View Details</Button>*/}
                     <Button size="sm" color="warning" onClick={() => checkOut(book)}>Return</Button>
                 </ButtonGroup>
             </td>

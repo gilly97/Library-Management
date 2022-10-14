@@ -86,15 +86,22 @@ refreshPage() {
                     {/* <Input type="text" name="years" id="years" value={item.years || ''}
                                onChange={this.handleChange} autoComplete="years"/> */}
                         <select  name="years" id="years" value={item.genre || ''}
-                               onChange={this.handleChange} autoComplete="genre">
+                               onChange={this.handleChange} autoComplete="years">
                             <option value=""></option>
-                            <option value="Fiction">Fiction</option>
-                            <option value="Fiction">Fiction</option>
-                            <option value="Fiction">Fiction</option>
-                            <option value="Fiction">Fiction</option>
-                            <option value="Fiction">Fiction</option>
-                            <option value="Fiction">Fiction</option>
-                            <option value="Fiction">Fiction</option>
+                            <option value="1960">1960</option>
+                            <option value="1961">1961</option>
+                            <option value="1962">1962</option>
+                            <option value="1963">1963</option>
+                            <option value="1964">1964</option>
+                            <option value="1965">1965</option>
+                            <option value="1966">1966</option>
+                            <option value="1967">1967</option>
+                            <option value="1968">1968</option>
+                            <option value="1969">1969</option>
+                            <option value="1970">1970</option>
+                            <option value="1971">1971</option>
+                            <option value="1972">1972</option>
+                            <option value="1973">1973</option>          
                         </select>
                     </FormGroup>
                     
