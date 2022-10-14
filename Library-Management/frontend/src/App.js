@@ -7,7 +7,8 @@ import BookEdit from "./BookEdit";
 import CheckedOutBooks from './CheckedOutBooks';
 import PersonList from './PersonList';
 import PersonEdit from "./PersonEdit";
-import CheckOut from "./CheckOut";
+import CheckOutList from "./CheckOutList";
+import CheckOutEdit from "./CheckOutEdit";
 
 
 class App extends Component {
@@ -17,8 +18,8 @@ class App extends Component {
           <Switch> 
             <Route path='/books/checked_out' exact={true} component={CheckedOutBooks}/>
             <Route path='/' exact={true} component={Home}/>
+            <Route path='/check_out:id' component={CheckOutEdit}/>                     
             <Route path='/books' exact={true} component={BookList}/> 
-            <Route path='/check_out/:id' component={CheckOut}/>                     
             <Route path='/books/:id' component={BookEdit}/>
             <Route path='/persons' exact={true} component={PersonList}/>           
             <Route path='/persons/:id' component={PersonEdit}/>

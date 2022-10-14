@@ -10,7 +10,7 @@ import AppNavbar from './AppNavbar';
 //     console.log(book);
 //   }
 
-class BookList extends Component {
+class CheckOutList extends Component {
 
 refreshPage(id) {
     window.location.href="books/"+id;
@@ -88,7 +88,7 @@ async handleSubmit(event) {
     
     render() {
         const {books, isLoading} = this.state;
-        console.log(books);
+
     
         if (isLoading) {
             return <p>Loading...</p>;
@@ -190,5 +190,4 @@ async handleSubmit(event) {
         );
     }
 }
-export default BookList;
-//<Link to="/books/new">Add Book</Link>
+export default CheckOutList;

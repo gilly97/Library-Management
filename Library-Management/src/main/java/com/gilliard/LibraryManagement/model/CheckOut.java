@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,7 +21,7 @@ public class CheckOut {
     private Long id;
 	@OneToMany(mappedBy = "checkOut", cascade = CascadeType.ALL)
 	private List<Book> books;
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "person_id")
 	private Person person;
 	
