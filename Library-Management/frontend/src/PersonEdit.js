@@ -26,11 +26,8 @@ class PersonEdit extends Component {
     }
     async componentDidMount() {
         if (this.props.match.params.id !== 'new') {
-           // console.log(fetch(`http://localhost:8080/books/${this.props.match.params.id}`));
             const person = await (await fetch(`http://localhost:8080/persons/${this.props.match.params.id}`)).json();
-            //${this.props.match.params.name}
             this.setState({item: person});
-            //console.log(this.state.id);
         }
     }
     handleChange(event) {
@@ -39,6 +36,10 @@ class PersonEdit extends Component {
         const name = target.name;
         let item = {...this.state.item};
         item[name] = value;
+        console.log(target);
+        console.log(value);
+        console.log(name);
+
         this.setState({item});
     }
     async handleSubmit(event) {

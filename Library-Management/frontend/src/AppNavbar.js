@@ -1,21 +1,9 @@
 import React, {Component} from 'react';
 import {Navbar, Button} from 'reactstrap';
-//import {Link} from 'react-router-dom';
-//import { useHistory } from "react-router-dom";
-
 
 function refreshPage() {
     window.location.href = "http://localhost:3000";
   }
-// function UrlChange() {
-  
-//   const history = useHistory();
-  
-//   const routeChange = () =>{ 
-//     let path = `/`; 
-//     history.push(path);
-//   }
-// }
 
 export default class AppNavbar extends Component {
     constructor(props) {
@@ -37,4 +25,3 @@ export default class AppNavbar extends Component {
         </Navbar>;
     }
 }
-//<NavbarBrand onClick={refreshPage} tag={Link} to="/">Why Not Work</NavbarBrand>

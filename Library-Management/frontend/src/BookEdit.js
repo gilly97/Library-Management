@@ -31,11 +31,8 @@ refreshPage() {
     }
     async componentDidMount() {
         if (this.props.match.params.id !== 'new') {
-           // console.log(fetch(`http://localhost:8080/books/${this.props.match.params.id}`));
             const book = await (await fetch(`http://localhost:8080/books/${this.props.match.params.id}`)).json();
-            //${this.props.match.params.name}
             this.setState({item: book});
-            //console.log(this.state.id);
         }
     }
     handleChange(event) {
@@ -83,9 +80,7 @@ refreshPage() {
                         <Label for="years">Year</Label>
                     </FormGroup>
                     <FormGroup>
-                    {/* <Input type="text" name="years" id="years" value={item.years || ''}
-                               onChange={this.handleChange} autoComplete="years"/> */}
-                        <select  name="years" id="years" value={item.genre || ''}
+                        <select  name="years" id="years" value={item.years || ''}
                                onChange={this.handleChange} autoComplete="years">
                             <option value=""></option>
                             <option value="1960">1960</option>
@@ -115,18 +110,16 @@ refreshPage() {
                         <Label for="genre">Genre</Label>
                     </FormGroup>
                     <FormGroup>
-                        {/* <Input type="text" name="genre" id="genre" value={item.genre || ''}
-                               onChange={this.handleChange} autoComplete="genre"/> */}
                         <select  name="genre" id="genre" value={item.genre || ''}
                                onChange={this.handleChange} autoComplete="genre">
                             <option value=""></option>
+                            <option value="Autobiography">Autobiography</option>
                             <option value="Fiction">Fiction</option>
-                            <option value="Fiction">Fiction</option>
-                            <option value="Fiction">Fiction</option>
-                            <option value="Fiction">Fiction</option>
-                            <option value="Fiction">Fiction</option>
-                            <option value="Fiction">Fiction</option>
-                            <option value="Fiction">Fiction</option>
+                            <option value="Genre-fiction">Genre-fiction</option>
+                            <option value="History">History</option>
+                            <option value="Non-fiction">Non-fiction</option>
+                            <option value="Novel">Novel</option>
+                            <option value="Poetry">Poetry</option>
                         </select>
                     </FormGroup>
                     <br/>

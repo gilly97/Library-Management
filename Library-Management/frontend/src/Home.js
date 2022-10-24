@@ -10,18 +10,44 @@ class Home extends Component {
                 <AppNavbar/>
                 <Container fluid>
                     <br/>
-                    <a href = "http://localhost:3000/persons">
-                        <Button color="success">Members</Button>
-                    </a>
+                    <h3><center>Library Management System</center></h3>
                     <br/>
                     <br/>
-                    <a href = "http://localhost:3000/books">
-                        <Button color="primary">Books</Button>
-                    </a>
+                    <div>
+                        <center>
+                        <a href = "http://localhost:3000/persons">
+                            <Button color="primary">Members</Button>
+                        </a>
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        <a href = "http://localhost:3000/books">
+                            <Button color="success">Available Books</Button>
+                        </a>
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        <a href = "http://localhost:3000/books/checked_out">
+                            <Button color="danger">Checked Out Books</Button>
+                        </a>
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        <a href = "http://localhost:3000/check_out/new">
+                            <Button color="warning">Check Outs</Button>
+                        </a>
+                        </center>
+                    </div>
                     <br/>
-                    {/* <a href = "http://localhost:3000/checked_out">
-                        <Button color="link">Checked Out Books</Button>
-                    </a> */}
                 </Container>
             </div>
         );
